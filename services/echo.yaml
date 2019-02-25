@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-echo-service-a
+  namespace: test
+  labels:
+    app: test
+spec:
+  ports:
+  - port: 8080
+    targetPort: 3000
+    name: http
+  selector:
+    app: echo-service-a
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: echo-service-a
+  namespace: test
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: echo-service-a
+        version: v1
+    spec:
+      containers:
+      - name: echo-service-a
+        image: kennship/http-echo
+        imagePullPolicy: Always #IfNotPresent
