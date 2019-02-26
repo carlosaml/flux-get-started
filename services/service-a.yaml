@@ -20,6 +20,8 @@ metadata:
   namespace: test
   labels:
     app: test
+  annotations:
+    readiness.status.sidecar.istio.io/applicationPorts: "8080"
 data:
   config.json: | 
     {
@@ -46,7 +48,8 @@ spec:
         app: service-a
         version: v1
       annotations:
-        status.sidecar.istio.io/port: "0"
+        status.sidecar.istio.io/port: "0"  # https://github.com/istio/istio/issues/9504
+        readiness.status.sidecar.istio.io/applicationPorts: "8080"
     spec:
       containers:
       - name: service-a
