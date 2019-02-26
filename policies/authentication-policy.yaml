@@ -1,11 +1,12 @@
 apiVersion: "authentication.istio.io/v1alpha1"
 kind: Policy
 metadata:
-  name: jwt-policy-test
+#  name: jwt-policy-test
+  name: default
   namespace: test
 spec:
   targets:
-  - name: svc-echo-service-a
+#  - name: svc-echo-service-a
 #  - name: svc-service-b
 #  - name: svc-service-c
 #  - name: svc-service-d
