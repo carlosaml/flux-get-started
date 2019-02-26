@@ -11,7 +11,7 @@ spec:
 
   - match:
     - uri:
-        prefix: /echo
+        prefix: /eco
     route:
     - destination:
         host: svc-echo-service-a.test.svc.cluster.local
