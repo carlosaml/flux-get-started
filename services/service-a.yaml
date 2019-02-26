@@ -45,6 +45,8 @@ spec:
       labels:
         app: service-a
         version: v1
+      annotations:
+        status.sidecar.istio.io/port: "0"
     spec:
       containers:
       - name: service-a
